@@ -1,3 +1,6 @@
+import { StorageService } from './../services/storage.service';
+import { Storage } from '@ionic/storage-angular';
+import { produto } from './../models/produto';
 import { Component } from '@angular/core';
 
 @Component({
@@ -7,6 +10,15 @@ import { Component } from '@angular/core';
 })
 export class HomePage {
 
-  constructor() {}
+  listaProdutos: produto[] = [];
 
+  constructor(private storageService: StorageService) { }
+
+ async buscarProdutos() {
+   this.listaProdutos = await this.storageService.getAll();
+ }
+
+  ionViewDidEnter() {
+    this.buscarProdutos();
+  }
 }
