@@ -4,18 +4,18 @@
       <ion-back-button></ion-back-button>
     </ion-button>
     <ion-title>
-      Lista de Produtos
+      Produtos Já Cadastrados
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
+<ion-content [fullscreen]="true" color="dark">
 <ion-card *ngFor="let user of listaProdutos">
   <ion-card-header>
     <ion-card-title>{{user.nome}}</ion-card-title>
     <ion-card-subtitle>{{user.descricao}}</ion-card-subtitle>
-    <ion-card-subtitle>Valido até {{user.validade}}</ion-card-subtitle>
-    <ion-card-subtitle>unidades {{user.preco}}</ion-card-subtitle>
+    <ion-card-subtitle>Validade: {{user.validade}}</ion-card-subtitle>
+    <ion-card-subtitle>Qntd: {{user.preco}}</ion-card-subtitle>
   </ion-card-header>
 
 </ion-card>

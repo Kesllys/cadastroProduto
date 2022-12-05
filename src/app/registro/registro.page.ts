@@ -11,6 +11,7 @@ import { Router } from '@angular/router';
   templateUrl: './registro.page.html',
   styleUrls: ['./registro.page.scss'],
 })
+
 export class RegistroPage implements OnInit {
   Produto: produto = new produto();
 
@@ -18,26 +19,26 @@ export class RegistroPage implements OnInit {
 
   mensagens = {
     nome: [
-      { tipo: 'required', mensagem: 'O campo nome é Obrigatorio.' },
+      { tipo: 'required', mensagem: 'Este campo é obrigatório!' },
     ],
 
     descricao: [
-      { tipo: 'required', mensagem: 'O campo descrição é obrigatorio.' },
-      { tipo: 'minLength', mensagem: 'O campo descrição deve conter no minimo mais de 25 caracteres.' },
+      { tipo: 'required', mensagem: 'Este campo é obrigatório!' },
+      { tipo: 'minLength', mensagem: 'A descrição deve conter no mínimo 10 caracteres.' },
     ],
 
     validade: [
       {
-        tipo: 'required', mensagem: 'O campo validade é Obrigatorio.'
+        tipo: 'required', mensagem: 'Este campo é obrigatório!'
       },
       {
-        tipo: 'required', mensagem: 'O campo validade deve conter no minimo mais de 6 caracteres.'
+        tipo: 'required', mensagem: 'Mínimo de 4 caracteres.'
       }
     ],
 
     preco: [
       {
-        tipo: 'required', mensagem: 'O campo preço é Obrigatorio.'
+        tipo: 'required', mensagem: 'Este campo é obrigatório!'
       }
     ]
   }
@@ -47,8 +48,8 @@ export class RegistroPage implements OnInit {
   constructor(private alertController: AlertController, private formBuilder: FormBuilder, private storageService: StorageService, private router: Router) {
     this.formCadastro = this.formBuilder.group({
       nome: ['', Validators.required],
-      descricao: ['', Validators.compose([Validators.required, Validators.minLength(25)])],
-      validade: ['', Validators.compose([Validators.required, Validators.minLength(6)])],
+      descricao: ['', Validators.compose([Validators.required, Validators.minLength(10)])],
+      validade: ['', Validators.compose([Validators.required, Validators.minLength(4)])],
       preco: ['', Validators.required],
     });
   }
@@ -67,10 +68,10 @@ export class RegistroPage implements OnInit {
 
     } else {
       const alert = await this.alertController.create({
-        header: 'Formulário Inválido!',
+        header: 'Corrija as informações!',
         subHeader: 'Campos não preenchidos!',
         message: 'Preencha todos os campos!!',
-        buttons: ['OK'],
+        buttons: ['Corrigir'],
       });
 
       await alert.present();

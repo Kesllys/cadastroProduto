@@ -1,11 +1,11 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>Registro</ion-title>
+    <ion-title>Registrar Produto</ion-title>
   </ion-toolbar>
 
 </ion-header>
 
-<ion-content>
+<ion-content color="dark">
   <form [formGroup]="formCadastro">
 
 
@@ -14,9 +14,9 @@
     </ion-item>
 
 
-    <ion-card>
+    <ion-card color="dark">
       <ion-card-header>
-        <ion-card-title>Cadastro produto</ion-card-title>
+        <ion-card-title>Novo Produto</ion-card-title>
       </ion-card-header>
 
       <ion-item>
@@ -67,10 +67,10 @@
 
     <ion-row>
       <ion-col>
-        <ion-button routerLink="/home" expand="block" color="light">Lista</ion-button>
+        <ion-button routerLink="/home" color="danger" expand="block" >Lista</ion-button>
       </ion-col>
       <ion-col>
-        <ion-button (click)="salvarcadastro()" expand="block" color="danger">Salvar</ion-button>
+        <ion-button (click)="salvarcadastro()" color="warning" expand="block" >Salvar</ion-button>
       </ion-col>
     </ion-row>
 
